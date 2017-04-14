@@ -9,11 +9,23 @@ import java.time.LocalTime;
  * 11.01.2015.
  */
 public class Meal extends BaseEntity {
-    private final LocalDateTime dateTime;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
-    private final String description;
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    private final int calories;
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
+    private LocalDateTime dateTime;
+
+    private String description;
+
+    private int calories;
 
     public Meal(LocalDateTime dateTime, String description, int calories) {
         this(null, dateTime, description, calories);
@@ -44,6 +56,12 @@ public class Meal extends BaseEntity {
 
     public LocalTime getTime() {
         return dateTime.toLocalTime();
+    }
+
+    public Meal() {
+        this.calories = 0;
+        this.description = "";
+        this.dateTime = LocalDateTime.MIN;
     }
 
     @Override
